@@ -919,7 +919,7 @@ user_pref("_user.js.parrot", "2000 syntax error: the parrot's snuffed it!");
  * [SETUP-WEB] WebRTC can leak your IP address from behind your VPN, but if this is not
  * in your threat model, and you want Real-Time Communication, this is the pref for you
  * [1] https://www.privacytools.io/#webrtc ***/
-user_pref("media.peerconnection.enabled", false);
+   // user_pref("media.peerconnection.enabled", false);
 /* 2002: limit WebRTC IP leaks if using WebRTC
  * In FF70+ these settings match Mode 4 (Mode 3 in older versions) [3]
  * [TEST] https://browserleaks.com/webrtc
@@ -927,21 +927,21 @@ user_pref("media.peerconnection.enabled", false);
  * [2] https://wiki.mozilla.org/Media/WebRTC/Privacy
  * [3] https://tools.ietf.org/html/draft-ietf-rtcweb-ip-handling-12#section-5.2 ***/
 user_pref("media.peerconnection.ice.default_address_only", true);
-user_pref("media.peerconnection.ice.no_host", true); // [FF51+]
+   // user_pref("media.peerconnection.ice.no_host", true); // [FF51+]
 user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true); // [FF70+]
 /* 2010: disable WebGL (Web Graphics Library)
  * [SETUP-WEB] When disabled, may break some websites. When enabled, provides high entropy,
  * especially with readPixels(). Some of the other entropy is lessened with RFP (see 4501)
  * [1] https://www.contextis.com/resources/blog/webgl-new-dimension-browser-exploitation/
  * [2] https://security.stackexchange.com/questions/13799/is-webgl-a-security-concern ***/
-user_pref("webgl.disabled", true);
+   // user_pref("webgl.disabled", true);
 user_pref("webgl.enable-webgl2", false);
 /* 2012: limit WebGL ***/
 user_pref("webgl.disable-fail-if-major-performance-caveat", true); // [DEFAULT: true FF86+]
 /* 2022: disable screensharing ***/
-user_pref("media.getusermedia.screensharing.enabled", false);
-user_pref("media.getusermedia.browser.enabled", false);
-user_pref("media.getusermedia.audiocapture.enabled", false);
+   // user_pref("media.getusermedia.screensharing.enabled", false);
+   // user_pref("media.getusermedia.browser.enabled", false);
+   // user_pref("media.getusermedia.audiocapture.enabled", false);
 /* 2024: set a default permission for Camera/Microphone [FF58+]
  * 0=always ask (default), 1=allow, 2=block
  * [SETTING] to add site exceptions: Ctrl+I>Permissions>Use the Camera/Microphone
@@ -1060,7 +1060,7 @@ user_pref("_user.js.parrot", "2400 syntax error: the parrot's kicked the bucket!
  * [4] https://www.mozilla.org/security/advisories/mfsa2017-01/#CVE-2017-5375
  * [5] https://www.mozilla.org/security/advisories/mfsa2017-05/#CVE-2017-5400
  * [6] https://rh0dev.github.io/blog/2017/the-return-of-the-jit/ ***/
-user_pref("javascript.options.asmjs", false);
+   // user_pref("javascript.options.asmjs", false);
 /* 2421: disable Ion and baseline JIT to harden against JS exploits [SETUP-HARDEN]
  * [NOTE] In FF75+, when **both** Ion and JIT are disabled, **and** the new
  * hidden pref is enabled, then Ion can still be used by extensions (1599226)
@@ -1077,7 +1077,7 @@ user_pref("javascript.options.asmjs", false);
  * [1] https://developer.mozilla.org/docs/WebAssembly
  * [2] https://spectrum.ieee.org/tech-talk/telecom/security/more-worries-over-the-security-of-web-assembly
  * [3] https://www.zdnet.com/article/half-of-the-websites-using-webassembly-use-it-for-malicious-purposes ***/
-user_pref("javascript.options.wasm", false);
+   // user_pref("javascript.options.wasm", false);
 /* 2429: enable (limited but sufficient) window.opener protection [FF65+]
  * Makes rel=noopener implicit for target=_blank in anchor and area elements when no rel attribute is set ***/
 user_pref("dom.targetBlankNoOpener.enabled", true); // [DEFAULT: true FF79+]
@@ -1105,7 +1105,7 @@ user_pref("media.navigator.enabled", false);
    // user_pref("layers.acceleration.disabled", true);
 /* 2510: disable Web Audio API [FF51+]
  * [1] https://bugzilla.mozilla.org/1288359 ***/
-user_pref("dom.webaudio.enabled", false);
+   // user_pref("dom.webaudio.enabled", false);
 /* 2517: disable Media Capabilities API [FF63+]
  * [WARNING] This *may* affect media performance if disabled, no one is sure
  * [1] https://github.com/WICG/media-capabilities
