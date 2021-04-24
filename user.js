@@ -1,4 +1,15 @@
 /******
+* noarch's user.js
+* https://github.com/noarchwastaken/user.js
+
+* A relaxed fork of arkenfox user.js, mainly focused on usability,
+* while keeping most of the privacy and anti-fingerprinting features.
+
+* All credit goes to the original project, arkenfox user.js.
+* Original README below.
+******/
+
+/******
 * name: arkenfox user.js
 * date: 23 April 2021
 * version 88
@@ -96,16 +107,16 @@ user_pref("browser.shell.checkDefaultBrowser", false);
  * 0=blank, 1=home, 2=last visited page, 3=resume previous session
  * [NOTE] Session Restore is not used in PB mode (0110) and is cleared with history (2803, 2804)
  * [SETTING] General>Startup>Restore previous session ***/
-user_pref("browser.startup.page", 0);
+user_pref("browser.startup.page", 1);
 /* 0103: set HOME+NEWWINDOW page
  * about:home=Activity Stream (default, see 0105), custom URL, about:blank
  * [SETTING] Home>New Windows and Tabs>Homepage and new windows ***/
-user_pref("browser.startup.homepage", "about:blank");
+user_pref("browser.startup.homepage", "about:home");
 /* 0104: set NEWTAB page
  * true=Activity Stream (default, see 0105), false=blank page
  * [SETTING] Home>New Windows and Tabs>New tabs ***/
-user_pref("browser.newtabpage.enabled", false);
-user_pref("browser.newtab.preload", false);
+user_pref("browser.newtabpage.enabled", true);
+   // user_pref("browser.newtab.preload", false);
 /* 0105: disable Activity Stream stuff (AS)
  * AS is the default homepage/newtab in FF57+, based on metadata and browsing behavior.
  *    **NOT LISTING ALL OF THESE: USE THE PREFERENCES UI**
@@ -173,7 +184,7 @@ user_pref("intl.accept_languages", "en-US, en");
 /* 0211: enforce US English locale regardless of the system locale
  * [SETUP-WEB] May break some input methods e.g xim/ibus for CJK languages [1]
  * [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=867501,1629630 ***/
-user_pref("javascript.use_us_english_locale", true); // [HIDDEN PREF]
+   // user_pref("javascript.use_us_english_locale", true); // [HIDDEN PREF]
 
 /*** [SECTION 0300]: QUIET FOX
      We only disable the auto-INSTALL of Firefox (app) updates. You still get prompts to update,
@@ -284,12 +295,12 @@ user_pref("extensions.blocklist.enabled", true); // [DEFAULT: true]
 /* 0410: disable SB (Safe Browsing)
  * [WARNING] Do this at your own risk! These are the master switches.
  * [SETTING] Privacy & Security>Security>... "Block dangerous and deceptive content" ***/
-   // user_pref("browser.safebrowsing.malware.enabled", false);
-   // user_pref("browser.safebrowsing.phishing.enabled", false);
+user_pref("browser.safebrowsing.malware.enabled", false);
+user_pref("browser.safebrowsing.phishing.enabled", false);
 /* 0411: disable SB checks for downloads (both local lookups + remote)
  * This is the master switch for the safebrowsing.downloads* prefs (0412, 0413)
  * [SETTING] Privacy & Security>Security>... "Block dangerous downloads" ***/
-   // user_pref("browser.safebrowsing.downloads.enabled", false);
+user_pref("browser.safebrowsing.downloads.enabled", false);
 /* 0412: disable SB checks for downloads (remote)
  * To verify the safety of certain executable files, Firefox may submit some information about the
  * file, including the name, origin, size and a cryptographic hash of the contents, to the Google
@@ -299,8 +310,8 @@ user_pref("browser.safebrowsing.downloads.remote.enabled", false);
 user_pref("browser.safebrowsing.downloads.remote.url", "");
 /* 0413: disable SB checks for unwanted software
  * [SETTING] Privacy & Security>Security>... "Warn you about unwanted and uncommon software" ***/
-   // user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
-   // user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
+user_pref("browser.safebrowsing.downloads.remote.block_potentially_unwanted", false);
+user_pref("browser.safebrowsing.downloads.remote.block_uncommon", false);
 /* 0419: disable 'ignore this warning' on SB warnings [FF45+]
  * If clicked, it bypasses the block for that session. This is a means for admins to enforce SB
  * [TEST] see github wiki APPENDIX A: Test Sites: Section 5
@@ -383,7 +394,7 @@ user_pref("_user.js.parrot", "0700 syntax error: the parrot's given up the ghost
  * [NOTE] PHP defaults to IPv6 with "localhost". Use "php -S 127.0.0.1:PORT"
  * [TEST] https://ipleak.org/
  * [1] https://www.internetsociety.org/tag/ipv6-security/ (see Myths 2,4,5,6) ***/
-user_pref("network.dns.disableIPv6", true);
+   // user_pref("network.dns.disableIPv6", true);
 /* 0702: disable HTTP2
  * HTTP2 raises concerns with "multiplexing" and "server push", does nothing to
  * enhance privacy, and opens up a number of server-side fingerprinting opportunities.
@@ -416,7 +427,7 @@ user_pref("network.proxy.socks_remote_dns", true);
 /* 0709: disable using UNC (Uniform Naming Convention) paths [FF61+]
  * [SETUP-CHROME] Can break extensions for profiles on network shares
  * [1] https://gitlab.torproject.org/tpo/applications/tor-browser/-/issues/26424 ***/
-user_pref("network.file.disable_unc_paths", true); // [HIDDEN PREF]
+   // user_pref("network.file.disable_unc_paths", true); // [HIDDEN PREF]
 /* 0710: disable GIO as a potential proxy bypass vector
  * Gvfs/GIO has a set of supported protocols like obex, network, archive, computer, dav, cdda,
  * gphoto2, trash, etc. By default only smb and sftp protocols are accepted so far (as of FF64)
@@ -442,7 +453,7 @@ user_pref("_user.js.parrot", "0800 syntax error: the parrot's ceased to be!");
  * dropdown, or using keyword search shortcuts you configure in options (e.g. 'd' for DuckDuckGo)
  * [SETUP-CHROME] If you don't, or rarely, type URLs, or you use a default search
  * engine that respects privacy, then you probably don't need this ***/
-user_pref("keyword.enabled", false);
+   // user_pref("keyword.enabled", false);
 /* 0802: disable location bar domain guessing
  * domain guessing intercepts DNS "hostname not found errors" and resends a
  * request (e.g. by adding www or .com). This is inconsistent use (e.g. FQDNs), does not work
@@ -566,7 +577,7 @@ user_pref("_user.js.parrot", "1000 syntax error: the parrot's gone to meet 'is m
  * [SETUP-PERF] If you think disk cache may help (heavy tab user, high-res video),
  * or you use a hardened Temporary Containers, then feel free to override this
  * [NOTE] We also clear cache on exiting Firefox (see 2803) ***/
-user_pref("browser.cache.disk.enable", false);
+   // user_pref("browser.cache.disk.enable", false);
 /* 1003: disable memory cache
  * capacity: -1=determine dynamically (default), 0=none, n=memory capacity in kibibytes ***/
    // user_pref("browser.cache.memory.enable", false);
@@ -660,7 +671,7 @@ user_pref("security.tls.version.enable-deprecated", false);
 /* 1206: disable TLS1.3 0-RTT (round-trip time) [FF51+]
  * [1] https://github.com/tlswg/tls13-spec/issues/1001
  * [2] https://blog.cloudflare.com/tls-1-3-overview-and-q-and-a/ ***/
-user_pref("security.tls.enable_0rtt_data", false);
+   // user_pref("security.tls.enable_0rtt_data", false);
 
 /** OCSP (Online Certificate Status Protocol)
     #Required reading [#] https://scotthelme.co.uk/revocation-is-broken/ ***/
@@ -970,7 +981,7 @@ user_pref("browser.link.open_newwindow.restriction", 0);
 user_pref("dom.disable_open_during_load", true);
 /* 2212: limit events that can cause a popup [SETUP-WEB]
  * default FF86+: "change click dblclick auxclick mousedown mouseup pointerdown pointerup notificationclick reset submit touchend contextmenu ***/
-user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
+   // user_pref("dom.popup_allowed_events", "click dblclick mousedown pointerdown");
 
 /*** [SECTION 2300]: WEB WORKERS
      A worker is a JS "background task" running in a global context, i.e. it is different from
@@ -1034,14 +1045,14 @@ user_pref("_user.js.parrot", "2400 syntax error: the parrot's kicked the bucket!
 /* 2404: disable clipboard commands (cut/copy) from "non-privileged" content [FF41+]
  * this disables document.execCommand("cut"/"copy") to protect your clipboard
  * [1] https://bugzilla.mozilla.org/1170911 ***/
-user_pref("dom.allow_cut_copy", false);
+   // user_pref("dom.allow_cut_copy", false);
 /* 2405: disable "Confirm you want to leave" dialog on page close
  * Does not prevent JS leaks of the page close event.
  * [1] https://developer.mozilla.org/docs/Web/Events/beforeunload
  * [2] https://support.mozilla.org/questions/1043508 ***/
-user_pref("dom.disable_beforeunload", true);
+   // user_pref("dom.disable_beforeunload", true);
 /* 2414: disable shaking the screen ***/
-user_pref("dom.vibrator.enabled", false);
+   // user_pref("dom.vibrator.enabled", false);
 /* 2420: disable asm.js [FF22+] [SETUP-PERF]
  * [1] http://asmjs.org/
  * [2] https://www.mozilla.org/security/advisories/mfsa2015-29/
@@ -1118,12 +1129,12 @@ user_pref("_user.js.parrot", "2600 syntax error: the parrot's run down the curta
 user_pref("accessibility.force_disabled", 1);
 /* 2602: disable sending additional analytics to web servers
  * [1] https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon ***/
-user_pref("beacon.enabled", false);
+   // user_pref("beacon.enabled", false);
 /* 2603: remove temp files opened with an external application
  * [1] https://bugzilla.mozilla.org/302433 ***/
 user_pref("browser.helperApps.deleteTempFileOnExit", true);
 /* 2604: disable page thumbnail collection ***/
-user_pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN PREF]
+   // user_pref("browser.pagethumbnails.capturing_disabled", true); // [HIDDEN PREF]
 /* 2606: disable UITour backend so there is no chance that a remote page can use it ***/
 user_pref("browser.uitour.enabled", false);
 user_pref("browser.uitour.url", "");
@@ -1203,9 +1214,9 @@ user_pref("extensions.postDownloadThirdPartyPrompt", false);
 /* 2651: enforce user interaction for security by always asking where to download
  * [SETUP-CHROME] On Android this blocks longtapping and saving images
  * [SETTING] General>Downloads>Always ask you where to save files ***/
-user_pref("browser.download.useDownloadDir", false);
+   // user_pref("browser.download.useDownloadDir", false);
 /* 2652: disable adding downloads to the system's "recent documents" list ***/
-user_pref("browser.download.manager.addToRecentDocs", false);
+   // user_pref("browser.download.manager.addToRecentDocs", false);
 /* 2654: disable "open with" in download dialog [FF50+] [SETUP-HARDEN]
  * This is very useful to enable when the browser is sandboxed (e.g. via AppArmor)
  * in such a way that it is forbidden to run external applications.
@@ -1328,9 +1339,9 @@ user_pref("privacy.sanitize.sanitizeOnShutdown", true);
  * [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings ***/
 user_pref("privacy.clearOnShutdown.cache", true);
 user_pref("privacy.clearOnShutdown.cookies", true);
-user_pref("privacy.clearOnShutdown.downloads", true); // see note above
+   // user_pref("privacy.clearOnShutdown.downloads", true); // see note above
 user_pref("privacy.clearOnShutdown.formdata", true); // Form & Search History
-user_pref("privacy.clearOnShutdown.history", true); // Browsing & Download History
+   // user_pref("privacy.clearOnShutdown.history", true); // Browsing & Download History
 user_pref("privacy.clearOnShutdown.offlineApps", true); // Offline Website Data
 user_pref("privacy.clearOnShutdown.sessions", true); // Active Logins
 user_pref("privacy.clearOnShutdown.siteSettings", false); // Site Preferences
@@ -1345,7 +1356,7 @@ user_pref("privacy.cpd.cookies", true);
 user_pref("privacy.cpd.formdata", true); // Form & Search History
 user_pref("privacy.cpd.history", true); // Browsing & Download History
 user_pref("privacy.cpd.offlineApps", true); // Offline Website Data
-user_pref("privacy.cpd.passwords", false); // this is not listed
+   // user_pref("privacy.cpd.passwords", false); // this is not listed
 user_pref("privacy.cpd.sessions", true); // Active Logins
 user_pref("privacy.cpd.siteSettings", false); // Site Preferences
 /* 2805: clear Session Restore data when sanitizing on shutdown or manually [FF34+]
@@ -1492,7 +1503,7 @@ user_pref("privacy.resistFingerprinting.block_mozAddonManager", true); // [HIDDE
  * [WARNING] The dimension pref is only meant for testing, and we recommend you DO NOT USE it
  * [1] https://bugzilla.mozilla.org/1407366
  * [2] https://hg.mozilla.org/mozilla-central/rev/6d2d7856e468#l2.32 ***/
-user_pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN PREF]
+   // user_pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN PREF]
    // user_pref("privacy.resistFingerprinting.letterboxing.dimensions", ""); // [HIDDEN PREF]
 /* 4510: disable showing about:blank as soon as possible during startup [FF60+]
  * When default true this no longer masks the RFP chrome resizing activity
@@ -1500,7 +1511,7 @@ user_pref("privacy.resistFingerprinting.letterboxing", true); // [HIDDEN PREF]
 user_pref("browser.startup.blankWindow", false);
 /* 4520: disable chrome animations [FF77+] [RESTART]
  * [NOTE] pref added in FF63, but applied to chrome in FF77. RFP spoofs this for web content ***/
-user_pref("ui.prefersReducedMotion", 1); // [HIDDEN PREF]
+   // user_pref("ui.prefersReducedMotion", 1); // [HIDDEN PREF]
 
 /*** [SECTION 4600]: RFP ALTERNATIVES
      [WARNING] Do NOT use prefs in this section with RFP as they can interfere
@@ -1653,9 +1664,11 @@ user_pref("browser.startup.homepage_override.mstone", "ignore"); // master switc
    // user_pref("view_source.tab", false); // view "page/selection source" in a new window [FF68+, FF59 and under]
 /* UX FEATURES: disable and hide the icons and menus ***/
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false); // What's New toolbar icon [FF69+]
-   // user_pref("extensions.pocket.enabled", false); // Pocket Account [FF46+]
-   // user_pref("identity.fxaccounts.enabled", false); // Firefox Accounts & Sync [FF60+] [RESTART]
+user_pref("extensions.pocket.enabled", false); // Pocket Account [FF46+]
+user_pref("identity.fxaccounts.enabled", false); // Firefox Accounts & Sync [FF60+] [RESTART]
    // user_pref("reader.parse-on-load.enabled", false); // Reader View
+/* WEBRENDER: force the use of WebRender compositor ***/
+user_pref("gfx.webrender.all", true); // Disable if you use NVIDIA on [LINUX]
 /* OTHER ***/
    // user_pref("browser.bookmarks.max_backups", 2);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false); // disable CFR [FF67+]
