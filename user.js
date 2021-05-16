@@ -180,7 +180,7 @@ user_pref("browser.region.update.enabled", false); // [[FF79+]
 /** LANGUAGE / LOCALE ***/
 /* 0210: set preferred language for displaying web pages
  * [TEST] https://addons.mozilla.org/about ***/
-user_pref("intl.accept_languages", "en-US, en");
+// user_pref("intl.accept_languages", "en-US, en");
 /* 0211: enforce US English locale regardless of the system locale
  * [SETUP-WEB] May break some input methods e.g xim/ibus for CJK languages [1]
  * [1] https://bugzilla.mozilla.org/buglist.cgi?bug_id=867501,1629630 ***/
@@ -813,12 +813,12 @@ user_pref("_user.js.parrot", "1400 syntax error: the parrot's bereft of life!");
    // user_pref("gfx.downloadable_fonts.fallback_delay", -1);
 /* 1404: disable rendering of SVG OpenType fonts
  * [1] https://wiki.mozilla.org/SVGOpenTypeFonts - iSECPartnersReport recommends to disable this ***/
-user_pref("gfx.font_rendering.opentype_svg.enabled", false);
+// user_pref("gfx.font_rendering.opentype_svg.enabled", false);
 /* 1408: disable graphite
  * Graphite has had many critical security issues in the past [1]
  * [1] https://www.mozilla.org/security/advisories/mfsa2017-15/#CVE-2017-7778
  * [2] https://en.wikipedia.org/wiki/Graphite_(SIL) ***/
-user_pref("gfx.font_rendering.graphite.enabled", false);
+// user_pref("gfx.font_rendering.graphite.enabled", false);
 /* 1409: limit system font exposure to a whitelist [FF52+] [RESTART]
  * If the whitelist is empty, then whitelisting is considered disabled and all fonts are allowed
  * [NOTE] In FF81+ the whitelist **overrides** RFP's font visibility (see 4618)
@@ -911,7 +911,7 @@ user_pref("plugin.state.flash", 0);
  * [SETTING] General>DRM Content>Play DRM-controlled content
  * [TEST] https://bitmovin.com/demos/drm
  * [1] https://www.eff.org/deeplinks/2017/10/drms-dead-canary-how-we-just-lost-web-what-we-learned-it-and-what-we-need-do-next ***/
-user_pref("media.eme.enabled", false);
+// user_pref("media.eme.enabled", false);
 
 /*** [SECTION 2000]: MEDIA / CAMERA / MIC ***/
 user_pref("_user.js.parrot", "2000 syntax error: the parrot's snuffed it!");
@@ -919,7 +919,7 @@ user_pref("_user.js.parrot", "2000 syntax error: the parrot's snuffed it!");
  * [SETUP-WEB] WebRTC can leak your IP address from behind your VPN, but if this is not
  * in your threat model, and you want Real-Time Communication, this is the pref for you
  * [1] https://www.privacytools.io/#webrtc ***/
-user_pref("media.peerconnection.enabled", false);
+// user_pref("media.peerconnection.enabled", false);
 /* 2002: limit WebRTC IP leaks if using WebRTC
  * In FF70+ these settings match Mode 4 (Mode 3 in older versions) [3]
  * [TEST] https://browserleaks.com/webrtc
@@ -934,14 +934,14 @@ user_pref("media.peerconnection.ice.proxy_only_if_behind_proxy", true); // [FF70
  * especially with readPixels(). Some of the other entropy is lessened with RFP (see 4501)
  * [1] https://www.contextis.com/resources/blog/webgl-new-dimension-browser-exploitation/
  * [2] https://security.stackexchange.com/questions/13799/is-webgl-a-security-concern ***/
-user_pref("webgl.disabled", true);
-user_pref("webgl.enable-webgl2", false);
+// user_pref("webgl.disabled", true);
+// user_pref("webgl.enable-webgl2", false);
 /* 2012: limit WebGL ***/
 user_pref("webgl.disable-fail-if-major-performance-caveat", true); // [DEFAULT: true FF86+]
 /* 2022: disable screensharing ***/
-user_pref("media.getusermedia.screensharing.enabled", false);
-user_pref("media.getusermedia.browser.enabled", false);
-user_pref("media.getusermedia.audiocapture.enabled", false);
+// user_pref("media.getusermedia.screensharing.enabled", false);
+// user_pref("media.getusermedia.browser.enabled", false);
+// user_pref("media.getusermedia.audiocapture.enabled", false);
 /* 2024: set a default permission for Camera/Microphone [FF58+]
  * 0=always ask (default), 1=allow, 2=block
  * [SETTING] to add site exceptions: Ctrl+I>Permissions>Use the Camera/Microphone
@@ -963,7 +963,7 @@ user_pref("media.autoplay.blocking_policy", 2);
 /*** [SECTION 2200]: WINDOW MEDDLING & LEAKS / POPUPS ***/
 user_pref("_user.js.parrot", "2200 syntax error: the parrot's 'istory!");
 /* 2202: prevent scripts from moving and resizing open windows ***/
-user_pref("dom.disable_window_move_resize", true);
+// user_pref("dom.disable_window_move_resize", true);
 /* 2203: open links targeting new windows in a new tab instead
  * This stops malicious window sizes and some screen resolution leaks.
  * You can still right-click a link and open in a new window.
@@ -1006,7 +1006,7 @@ user_pref("_user.js.parrot", "2300 syntax error: the parrot's off the twig!");
  * [SETUP-WEB] Disabling service workers will break some sites. This pref is required true for
  * service worker notifications (2304), push notifications (disabled, 2305) and service worker
  * cache (2740). If you enable this pref, then check those settings as well ***/
-user_pref("dom.serviceWorkers.enabled", false);
+// user_pref("dom.serviceWorkers.enabled", false);
 /* 2304: disable Web Notifications
  * [NOTE] Web Notifications can also use service workers (2302) and are behind a prompt (2306)
  * [1] https://developer.mozilla.org/docs/Web/API/Notifications_API ***/
@@ -1060,7 +1060,7 @@ user_pref("_user.js.parrot", "2400 syntax error: the parrot's kicked the bucket!
  * [4] https://www.mozilla.org/security/advisories/mfsa2017-01/#CVE-2017-5375
  * [5] https://www.mozilla.org/security/advisories/mfsa2017-05/#CVE-2017-5400
  * [6] https://rh0dev.github.io/blog/2017/the-return-of-the-jit/ ***/
-user_pref("javascript.options.asmjs", false);
+// user_pref("javascript.options.asmjs", false);
 /* 2421: disable Ion and baseline JIT to harden against JS exploits [SETUP-HARDEN]
  * [NOTE] In FF75+, when **both** Ion and JIT are disabled, **and** the new
  * hidden pref is enabled, then Ion can still be used by extensions (1599226)
@@ -1077,7 +1077,7 @@ user_pref("javascript.options.asmjs", false);
  * [1] https://developer.mozilla.org/docs/WebAssembly
  * [2] https://spectrum.ieee.org/tech-talk/telecom/security/more-worries-over-the-security-of-web-assembly
  * [3] https://www.zdnet.com/article/half-of-the-websites-using-webassembly-use-it-for-malicious-purposes ***/
-user_pref("javascript.options.wasm", false);
+// user_pref("javascript.options.wasm", false);
 /* 2429: enable (limited but sufficient) window.opener protection [FF65+]
  * Makes rel=noopener implicit for target=_blank in anchor and area elements when no rel attribute is set ***/
 user_pref("dom.targetBlankNoOpener.enabled", true); // [DEFAULT: true FF79+]
@@ -1095,7 +1095,7 @@ user_pref("_user.js.parrot", "2500 syntax error: the parrot's shuffled off 'is m
  * [NOTE] media.peerconnection.enabled should also be set to false (see 2001)
  * [1] https://wiki.mozilla.org/Media/getUserMedia
  * [2] https://developer.mozilla.org/docs/Web/API/MediaDevices/enumerateDevices ***/
-user_pref("media.navigator.enabled", false);
+// user_pref("media.navigator.enabled", false);
 /* 2508: disable hardware acceleration to reduce graphics fingerprinting [SETUP-HARDEN]
  * [WARNING] Affects text rendering (fonts will look different), impacts video performance,
  * and parts of Quantum that utilize the GPU will also be affected as they are rolled out
@@ -1105,7 +1105,7 @@ user_pref("media.navigator.enabled", false);
    // user_pref("layers.acceleration.disabled", true);
 /* 2510: disable Web Audio API [FF51+]
  * [1] https://bugzilla.mozilla.org/1288359 ***/
-user_pref("dom.webaudio.enabled", false);
+// user_pref("dom.webaudio.enabled", false);
 /* 2517: disable Media Capabilities API [FF63+]
  * [WARNING] This *may* affect media performance if disabled, no one is sure
  * [1] https://github.com/WICG/media-capabilities
@@ -1126,7 +1126,7 @@ user_pref("_user.js.parrot", "2600 syntax error: the parrot's run down the curta
 /* 2601: prevent accessibility services from accessing your browser [RESTART]
  * [SETTING] Privacy & Security>Permissions>Prevent accessibility services from accessing your browser (FF80 or lower)
  * [1] https://support.mozilla.org/kb/accessibility-services ***/
-user_pref("accessibility.force_disabled", 1);
+// user_pref("accessibility.force_disabled", 1);
 /* 2602: disable sending additional analytics to web servers
  * [1] https://developer.mozilla.org/docs/Web/API/Navigator/sendBeacon ***/
    // user_pref("beacon.enabled", false);
@@ -1330,7 +1330,7 @@ user_pref("dom.storage.next_gen", true);
 user_pref("_user.js.parrot", "2800 syntax error: the parrot's bleedin' demised!");
 /* 2802: enable Firefox to clear items on shutdown (see 2803)
  * [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes ***/
-user_pref("privacy.sanitize.sanitizeOnShutdown", true);
+// user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 /* 2803: set what items to clear on shutdown (if 2802 is true) [SETUP-CHROME]
  * [NOTE] If 'history' is true, downloads will also be cleared regardless of the value
  * but if 'history' is false, downloads can still be cleared independently
@@ -1339,9 +1339,9 @@ user_pref("privacy.sanitize.sanitizeOnShutdown", true);
  * [SETTING] Privacy & Security>History>Custom Settings>Clear history when Firefox closes>Settings ***/
 user_pref("privacy.clearOnShutdown.cache", true);
 user_pref("privacy.clearOnShutdown.cookies", true);
-   // user_pref("privacy.clearOnShutdown.downloads", true); // see note above
+user_pref("privacy.clearOnShutdown.downloads", true); // see note above
 user_pref("privacy.clearOnShutdown.formdata", true); // Form & Search History
-   // user_pref("privacy.clearOnShutdown.history", true); // Browsing & Download History
+user_pref("privacy.clearOnShutdown.history", true); // Browsing & Download History
 user_pref("privacy.clearOnShutdown.offlineApps", true); // Offline Website Data
 user_pref("privacy.clearOnShutdown.sessions", true); // Active Logins
 user_pref("privacy.clearOnShutdown.siteSettings", false); // Site Preferences
