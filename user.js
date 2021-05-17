@@ -1663,10 +1663,9 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", 
      Those options are not (yet) present in the current Arkenfox user.js, but noarch decides to add them here. ***/
 /* SPONSOR LINKS ***/
 /* remove all links present by default in the new tab page,
-   except Wikipedia and Google (Google removed in the next option) */
+   except Wikipedia and Google (Google can't be removed without forbidding the user to pin websites) */
 user_pref("browser.newtabpage.blocked", "{\"mZmevP23jfB3rScn/QCWnw==\":1,\"K00ILysCaEq8+bEqV/3nuw==\":1,\"4gPpjkxgZzXPVtuEoAL9Ig==\":1,\"26UbzFJ7qT9/4DhodHKA1Q==\":1,\"gLv0ja2RYVgxKdp0I5qwvA==\":1,\"T9nJot5PurhJSy8n038xGA==\":1,\"oYry01JR5qiqP3ru9Hdmtg==\":1}");
-// remove Google pin
-user_pref("browser.newtabpage.pinned", "[]");
+// user_pref("browser.newtabpage.pinned", "[]"); // remove Google pin
 
 /*** [SECTION 9999]: DEPRECATED / REMOVED / LEGACY / RENAMED
      Documentation denoted as [-]. Items deprecated in FF78 or earlier have been archived at [1],
