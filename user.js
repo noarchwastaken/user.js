@@ -1648,8 +1648,6 @@ user_pref("browser.messaging-system.whatsNewPanel.enabled", false); // What's Ne
 user_pref("extensions.pocket.enabled", false); // Pocket Account [FF46+]
 user_pref("identity.fxaccounts.enabled", false); // Firefox Accounts & Sync [FF60+] [RESTART]
    // user_pref("reader.parse-on-load.enabled", false); // Reader View
-/* WEBRENDER: force the use of WebRender compositor ***/
-user_pref("gfx.webrender.all", true); // Disable if you use NVIDIA on [LINUX]
 /* OTHER ***/
    // user_pref("browser.bookmarks.max_backups", 2);
 user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.addons", false); // disable CFR [FF67+]
