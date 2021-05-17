@@ -82,6 +82,7 @@
   4600: RFP ALTERNATIVES
   4700: RFP ALTERNATIVES (USER AGENT SPOOFING)
   5000: PERSONAL
+  6000: NOARCH
   9999: DEPRECATED / REMOVED / LEGACY / RENAMED
 
 ******/
@@ -1656,6 +1657,16 @@ user_pref("browser.newtabpage.activity-stream.asrouter.userprefs.cfr.features", 
       // [SETTING] General>Browsing>Recommend features as you browse
    // user_pref("network.manage-offline-status", false); // see bugzilla 620472
    // user_pref("xpinstall.signatures.required", false); // enforced extension signing (Nightly/ESR)
+
+/*** [SECTION 6000]: NOARCH
+     A few extra tweaks added by noarch.
+     Those options are not (yet) present in the current Arkenfox user.js, but noarch decides to add them here. ***/
+/* SPONSOR LINKS ***/
+/* remove all links present by default in the new tab page,
+   except Wikipedia and Google (Google removed in the next option) */
+user_pref("browser.newtabpage.blocked", "{\"mZmevP23jfB3rScn/QCWnw==\":1,\"K00ILysCaEq8+bEqV/3nuw==\":1,\"4gPpjkxgZzXPVtuEoAL9Ig==\":1,\"26UbzFJ7qT9/4DhodHKA1Q==\":1,\"gLv0ja2RYVgxKdp0I5qwvA==\":1,\"T9nJot5PurhJSy8n038xGA==\":1,\"oYry01JR5qiqP3ru9Hdmtg==\":1}");
+// remove Google pin
+user_pref("browser.newtabpage.pinned", "[]");
 
 /*** [SECTION 9999]: DEPRECATED / REMOVED / LEGACY / RENAMED
      Documentation denoted as [-]. Items deprecated in FF78 or earlier have been archived at [1],
