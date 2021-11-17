@@ -457,7 +457,7 @@ user_pref("_user.js.parrot", "1000 syntax error: the parrot's gone to meet 'is m
 /* 1001: disable disk cache
  * [SETUP-CHROME] If you think disk cache helps perf, then feel free to override this
  * [NOTE] We also clear cache on exit (2803) ***/
-user_pref("browser.cache.disk.enable", false);
+// user_pref("browser.cache.disk.enable", false);
 /* 1002: disable media cache from writing to disk in Private Browsing
  * [NOTE] MSE (Media Source Extensions) are already stored in-memory in PB
  * [SETUP-WEB] ESR78: playback might break on subsequent loading (1650281) ***/
@@ -466,7 +466,7 @@ user_pref("media.memory_cache_max_size", 65536);
 /* 1003: disable storing extra session data [SETUP-CHROME]
  * define on which sites to save extra session data such as form content, cookies and POST data
  * 0=everywhere, 1=unencrypted sites, 2=nowhere ***/
-user_pref("browser.sessionstore.privacy_level", 2);
+// user_pref("browser.sessionstore.privacy_level", 2);
 /* 1004: set the minimum interval between session save operations
  * Increasing this can help on older machines and some websites, as well as reducing writes [1]
  * [1] https://bugzilla.mozilla.org/1304389 ***/
@@ -478,7 +478,7 @@ user_pref("toolkit.winRegisterApplicationRestart", false);
  * URL shortcuts use a cached randomly named .ico file which is stored in your
  * profile/shortcutCache directory. The .ico remains after the shortcut is deleted
  * If set to false then the shortcuts use a generic Firefox icon ***/
-user_pref("browser.shell.shortcutFavicons", false);
+// user_pref("browser.shell.shortcutFavicons", false);
 
 /*** [SECTION 1200]: HTTPS (SSL/TLS / OCSP / CERTS / HPKP)
    Your cipher and other settings can be used in server side fingerprinting
@@ -792,7 +792,7 @@ user_pref("network.IDN_show_punycode", true);
  * CAVEAT: JS can still force a pdf to open in-browser by bundling its own code
  * [SETTING] General>Applications>Portable Document Format (PDF) ***/
 user_pref("pdfjs.disabled", false); // [DEFAULT: false]
-user_pref("pdfjs.enableScripting", false); // [FF86+]
+// user_pref("pdfjs.enableScripting", false); // [FF86+]
 /* 2621: disable links launching Windows Store on Windows 8/8.1/10 [WINDOWS] ***/
 user_pref("network.protocol-handler.external.ms-windows-store", false);
 /* 2623: disable permissions delegation [FF73+]
@@ -1097,7 +1097,7 @@ user_pref("browser.link.open_newwindow", 3); // [DEFAULT: 3]
 user_pref("browser.link.open_newwindow.restriction", 0);
 /* 4520: disable WebGL (Web Graphics Library)
  * [SETUP-WEB] If you need it then enable it. RFP still randomizes canvas for naive scripts ***/
-user_pref("webgl.disabled", true);
+// user_pref("webgl.disabled", true);
 
 /*** [SECTION 5000]: OPTIONAL OPSEC
    Disk avoidance, application data isolation, eyeballs...
@@ -1398,9 +1398,9 @@ user_pref("browser.startup.homepage_override.mstone", "ignore"); // master switc
    // user_pref("view_source.tab", false); // view "page/selection source" in a new window [FF68+, FF59 and under]
 /* UX FEATURES ***/
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false); // What's New toolbar icon [FF69+]
-   // user_pref("extensions.pocket.enabled", false); // Pocket Account [FF46+]
+user_pref("extensions.pocket.enabled", false); // Pocket Account [FF46+]
    // user_pref("extensions.screenshots.disabled", true); // [FF55+]
-   // user_pref("identity.fxaccounts.enabled", false); // Firefox Accounts & Sync [FF60+] [RESTART]
+user_pref("identity.fxaccounts.enabled", false); // Firefox Accounts & Sync [FF60+] [RESTART]
    // user_pref("reader.parse-on-load.enabled", false); // Reader View
 /* OTHER ***/
    // user_pref("browser.bookmarks.max_backups", 2);
